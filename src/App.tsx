@@ -1,18 +1,30 @@
 import './styles/theme.css';
 import './styles/global.css'
 
+
+import { Container } from './components/Container';
+import { Heading } from './components/Heading';
+
+
 export function App() {
-  console.log("oi");
 
   return (
-    <div>
-      <h1>Olá Mundo!</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-        excepturi cum ipsa cumque saepe, ut doloribus dolor perferendis
-        consectetur dolores natus, recusandae quasi! Ipsa vel reprehenderit
-        nesciunt, est similique assumenda.
-      </p>
-    </div>
+    <>
+    <Container>
+      <Heading>LOGO</Heading>
+    </Container>
+
+    <Container>
+      <Heading>MENU</Heading>
+    </Container>
+
+    <Container>
+      <Heading>FORM</Heading>       
+    </Container>
+
+    <Container>
+      <Heading>FOOTER</Heading>
+    </Container>
+    </>
   );
 }
