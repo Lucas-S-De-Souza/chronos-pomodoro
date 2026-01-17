@@ -12,8 +12,9 @@ import { DefaultButton } from './components/DefaultButton';
 import { PlayCircleIcon} from 'lucide-react';
 import { Footer } from './components/Footer';
 
-
 export function App() {
+// Que todos os componentes que usam "numero" saibam das mudanças em seu valor
+// Sempre que usarmos useState, não vou usar atribuição diretamente
 
   return (
     <>

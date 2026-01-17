@@ -1,22 +1,64 @@
 import { HistoryIcon, HouseIcon, SettingsIcon, SunIcon } from "lucide-react";
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
+import { useState } from "react";
+
+type AvailableThemes = 'dark' | 'light'
 
 export function Menu() {
-  return <nav className={styles.menu}>
-    <a className={styles.menuLink} href="#">
-      <HouseIcon />
-    </a>
+  const [theme, setTheme] = useState<AvailableThemes> ('dark')
 
-    <a className={styles.menuLink} href="#">
-      <HistoryIcon />
-    </a>
+  function handleThemeChange (
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) {
+    event.preventDefault(); // Não segue o link
 
-    <a className={styles.menuLink} href="#">
-      <SettingsIcon />
-    </a>
+    console.log('Clicado', Date.now());
 
-    <a className={styles.menuLink} href="#">
-      <SunIcon />
-    </a>
-  </nav>;
+    setTheme(prevTheme =>{
+      const nextTheme = prevTheme === 'dark' ? 'light' : 'dark';
+      return nextTheme;
+    })
+  }
+
+  return (
+    <nav className={styles.menu}>
+      <h1>{theme}</h1>
+      <a
+        className={styles.menuLink}
+        href="#"
+        aria-label="Ir para a Home"
+        title="Ir para a Home"
+      >
+        <HouseIcon />
+      </a>
+
+      <a
+        className={styles.menuLink}
+        href="#"
+        aria-label="Ver Histórico"
+        title="Ver Histórico"
+      >
+        <HistoryIcon />
+      </a>
+
+      <a
+        className={styles.menuLink}
+        href="#"
+        aria-label="Configurações"
+        title="Configurações"
+      >
+        <SettingsIcon />
+      </a>
+
+      <a
+        className={styles.menuLink}
+        href="#"
+        aria-label="Mudar tema"
+        title="Mudar tema"
+        onClick={handleThemeChange}
+      >
+        <SunIcon />
+      </a>
+    </nav>
+  );
 }
