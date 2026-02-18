@@ -7,7 +7,7 @@ type TaskContextProps = {
   state: TaskStateModel;
   dispatch: React.Dispatch<TaskActionModel>;
 };
-  
+
 const initialContextValue = {
   state: initialTaskState,
   dispatch: () => {},

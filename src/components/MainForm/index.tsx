@@ -37,11 +37,11 @@ export function MainForm() {
       duration: state.config[nextCyleType],
       type: nextCyleType,
     };
-    
+
     dispatch({ type: TaskActionTypes.START_TASK, payload: newTask });
   }
   function handleInterruptTask() {
-    dispatch({ type: TaskActionTypes.INTERRUPT_TASK});
+    dispatch({ type: TaskActionTypes.INTERRUPT_TASK });
   }
 
   return (
@@ -62,30 +62,30 @@ export function MainForm() {
       </div>
 
       {state.currentCycle > 0 && (
-        <div className='formRow'>
+        <div className="formRow">
           <Cycles />
         </div>
       )}
 
       {!state.activeTask && (
-          <DefaultButton
-            aria-label='Iniciar nova tarefa'
-            title='Iniciar nova tarefa'
-            type='submit'
-            icon={<PlayCircleIcon />}
-          />
-        )}
+        <DefaultButton
+          aria-label="Iniciar nova tarefa"
+          title="Iniciar nova tarefa"
+          type="submit"
+          icon={<PlayCircleIcon />}
+        />
+      )}
 
-        {!!state.activeTask && (
-          <DefaultButton
-            aria-label='Interromper tarefa atual'
-            title='Interromper tarefa atual'
-            type='button'
-            color='red'
-            icon={<StopCircleIcon />}
-            onClick={handleInterruptTask}
-          />
-        )}
+      {!!state.activeTask && (
+        <DefaultButton
+          aria-label="Interromper tarefa atual"
+          title="Interromper tarefa atual"
+          type="button"
+          color="red"
+          icon={<StopCircleIcon />}
+          onClick={handleInterruptTask}
+        />
+      )}
     </form>
   );
 }
